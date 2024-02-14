@@ -1,38 +1,38 @@
-from conftest import init_webdriver as wd
 from locators import Locators
-from time import sleep
+from data import *
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 
 class TestPersonalAccount:
     def test_transfer_to_personal_account(self, wd):
         wd.find_element(*Locators.account_button).click()
-        wd.find_element(*Locators.email_input).send_keys('sharipov_5@gmail.com')
-        wd.find_element(*Locators.password_input).send_keys('hSTwgB83')
+        wd.find_element(*Locators.email_input).send_keys(email)
+        wd.find_element(*Locators.password_input).send_keys(password)
         wd.find_element(*Locators.enter_click).click()
         wd.find_element(*Locators.account_button).click()
-        sleep(2)
         check_account_page = wd.find_element(*Locators.check_account_page).text
+        WebDriverWait(wd, 3).until(expected_conditions.element_to_be_clickable(check_account_page))
         assert check_account_page == 'В этом разделе вы можете изменить свои персональные данные'
-        # wd.find_element(*Locators.)
 
     def test_transfer_to_constructor(self, wd):
         wd.find_element(*Locators.account_button).click()
-        wd.find_element(*Locators.email_input).send_keys('sharipov_5@gmail.com')
-        wd.find_element(*Locators.password_input).send_keys('hSTwgB83')
+        wd.find_element(*Locators.email_input).send_keys(email)
+        wd.find_element(*Locators.password_input).send_keys(password)
         wd.find_element(*Locators.enter_click).click()
         wd.find_element(*Locators.account_button).click()
         wd.find_element(*Locators.constructor).click()
-        sleep(1)
         check_text = wd.find_element(*Locators.button_order).text
+        WebDriverWait(wd, 3).until(expected_conditions.element_to_be_clickable(check_text))
         assert check_text == 'Оформить заказ'
 
     def test_transfer_to_logo(self, wd):
         wd.find_element(*Locators.account_button).click()
-        wd.find_element(*Locators.email_input).send_keys('sharipov_5@gmail.com')
-        wd.find_element(*Locators.password_input).send_keys('hSTwgB83')
+        wd.find_element(*Locators.email_input).send_keys(email)
+        wd.find_element(*Locators.password_input).send_keys(password)
         wd.find_element(*Locators.enter_click).click()
         wd.find_element(*Locators.account_button).click()
         wd.find_element(*Locators.logo).click()
-        sleep(1)
         check_text = wd.find_element(*Locators.button_order).text
+        WebDriverWait(wd, 3).until(expected_conditions.element_to_be_clickable(check_text))
         assert check_text == 'Оформить заказ'
 

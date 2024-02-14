@@ -17,10 +17,13 @@ class Locators:
     text_enter = (By.XPATH, ".// h2[text() = 'Вход']")
 
     '''Кнопка зарегистрироваться'''
-    registr_button = (By.XPATH, ".//a[text()='Зарегистрироваться']")
+    registr_button = (By.XPATH, '//button[contains(text(), "Зарегистрироваться")]')
 
     '''Кнопка восстановить пароль'''
     recover_pass = (By.XPATH, ".//a[text()='Восстановить пароль']")
+
+    '''Ошибка при вводе неправильного пароля'''
+    invalid_password = (By.XPATH, '//p[contains(text(),"Некорректный пароль")]')
 
     '''Кнопка Войти в аккаунт'''
     account_enter = (By.XPATH, ".//button[contains(text(), 'Войти в аккаунт']")
@@ -46,20 +49,14 @@ class Locators:
     '''Переход Булки'''
     bread = (By.XPATH, "//span[text() = 'Булки']")
 
-    '''Проверка перехода на Булки'''
-    bread_check = (By.XPATH, ".// h2[text() = 'Булки']")
-
     '''Переход Соусы'''
     sauce = (By.XPATH, "//span[text() = 'Соусы']")
-
-    '''Проверка перехода на Соусы'''
-    sauce_check = (By.XPATH, ".// h2[text() = 'Соусы']")
 
     '''Переход Начинки'''
     filling = (By.XPATH, "//span[text() = 'Начинки']")
 
-    '''Проверка перехода на Начинки'''
-    filling_check = (By.XPATH, ".// h2[text() = 'Начинки']")
+    '''Активированная секция'''
+    active_section = (By.XPATH, "//*[contains(@class, 'tab_tab_type_current')]")
 
     '''Проверка личного кабинета'''
     check_account_page = (By.XPATH, ".//p[contains(text(),'В этом разделе вы можете изменить свои персональные данные')]")

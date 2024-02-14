@@ -2,9 +2,10 @@ import pytest
 from selenium import webdriver
 
 @pytest.fixture()
-def init_webdriver():
+def wd():
     driver = webdriver.Chrome()
-    driver.maximize_window()
+    driver.set_window_size(1920, 1080)
     driver.get("https://stellarburgers.nomoreparties.site/")
     yield driver
     driver.quit()
+
