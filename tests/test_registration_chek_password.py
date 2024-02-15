@@ -1,5 +1,6 @@
 from locators import Locators
 from data import *
+from helpers import *
 
 class TestRegistration:
     def test_successful_registration(self, wd):
